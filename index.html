@@ -120,18 +120,30 @@
         /* Онлайн счётчик */
         .online-counter {
             background: #1e2636;
-            border: 2px solid #4a6b2f;
-            padding: 8px 16px;
+            border: 3px solid #4a6b2f;
+            padding: 15px 25px;
             display: inline-block;
             font-family: 'Press Start 2P', cursive;
             font-size: 0.7rem;
             color: #a5d6a5;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 -2px 0 #2a3a1e, 0 5px 0 #0a0f1a;
         }
 
         .online-counter i {
-            margin-right: 8px;
+            margin-right: 10px;
             color: #4a6b2f;
+            font-size: 1rem;
+        }
+
+        /* Стили для счётчика FreeCounter */
+        .freecounter {
+            display: inline-block;
+            background: #0a0f1a;
+            padding: 5px 10px;
+            border: 2px solid #4a6b2f;
+            margin-left: 10px;
+            font-size: 0.9rem;
         }
 
         /* Герой секция */
@@ -344,7 +356,7 @@
             margin: 0 4px;
         }
 
-        /* Неполноправные граждане (бывшие рабы) */
+        /* Неполноправные граждане */
         .citizens-row {
             display: flex;
             justify-content: center;
@@ -632,8 +644,14 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="online-counter" id="onlineCounter">
-                    <i class="fas fa-users"></i> Загрузка...
+                <div class="online-counter">
+                    <i class="fas fa-users"></i> Реальный онлайн:
+                    <!-- Код счётчика FreeCounter -->
+                    <span class="freecounter">
+                        <a href="https://www.freecounterstat.com" title="web counter">
+                            <img src="https://counter7.optistats.ovh/private/freecounterstat.php?c=7xg3wsftz4khw7rl7n2r5pz7lzcllkh2" border="0" title="web counter" alt="web counter">
+                        </a>
+                    </span>
                 </div>
                 <h1>Бункер бобра<br>Minecraft империя</h1>
                 <p>Построй своё будущее в суровом мире блоков. У нас есть император, помощник императора, полноправные и неполноправные граждане. Выбирай свою роль!</p>
@@ -844,7 +862,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Бункер бобра. Все права защищены. Рабы, копайте! (шутка, у нас неполноправные граждане)</p>
+                <p>© 2026 Бункер бобра. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -864,38 +882,6 @@
                 }
             });
         });
-
-        // Функция для получения и отображения онлайн-статистики
-        async function updateOnlineCounter() {
-            const counterElement = document.getElementById('onlineCounter');
-            
-            try {
-                // Используем бесплатный сервис для подсчёта просмотров
-                const response = await fetch('https://api.countapi.xyz/hit/bunker-bobra/visits');
-                const data = await response.json();
-                
-                // Получаем уникальных посетителей за последние 5 минут (имитация онлайн)
-                const onlineResponse = await fetch('https://api.countapi.xyz/get/bunker-bobra/online');
-                let online = 0;
-                
-                if (onlineResponse.ok) {
-                    const onlineData = await onlineResponse.json();
-                    online = onlineData.value || 1;
-                } else {
-                    // Если не получилось получить онлайн, генерируем случайное число от 1 до 5
-                    online = Math.floor(Math.random() * 5) + 1;
-                }
-                
-                counterElement.innerHTML = `<i class="fas fa-users"></i> Сейчас на сайте: ${online} чел. | Всего просмотров: ${data.value}`;
-            } catch (error) {
-                // Если ошибка, показываем заглушку
-                counterElement.innerHTML = `<i class="fas fa-users"></i> Сейчас на сайте: ~3 чел.`;
-            }
-        }
-
-        // Обновляем онлайн каждые 30 секунд
-        updateOnlineCounter();
-        setInterval(updateOnlineCounter, 30000);
 
         // Функция проверки статуса через Supabase
         window.checkStatus = async function() {
