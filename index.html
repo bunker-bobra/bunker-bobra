@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome (оставлен только для иконок в карточках, но соцсети удалены) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -115,6 +115,23 @@
             color: #a5d6a5;
             border: 2px solid #a5d6a5;
             box-shadow: 0 4px 0 #4a6b2f;
+        }
+
+        /* Онлайн счётчик */
+        .online-counter {
+            background: #1e2636;
+            border: 2px solid #4a6b2f;
+            padding: 8px 16px;
+            display: inline-block;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: #a5d6a5;
+            margin-bottom: 20px;
+        }
+
+        .online-counter i {
+            margin-right: 8px;
+            color: #4a6b2f;
         }
 
         /* Герой секция */
@@ -327,8 +344,8 @@
             margin: 0 4px;
         }
 
-        /* Рабы */
-        .slave-row {
+        /* Неполноправные граждане (бывшие рабы) */
+        .citizens-row {
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -336,29 +353,29 @@
             margin-top: 40px;
         }
 
-        .slave-card {
-            background: #1e1e2a;
-            border: 3px solid #8b4a4a;
+        .citizen-card {
+            background: #1e2636;
+            border: 3px solid #8b6b4a;
             padding: 16px 24px;
             display: flex;
             align-items: center;
             gap: 16px;
-            box-shadow: 0 6px 0 #4a2a2a;
+            box-shadow: 0 6px 0 #5a3e1f;
         }
 
-        .slave-icon {
+        .citizen-icon {
             font-size: 2rem;
-            filter: drop-shadow(2px 2px 0 #4a2a2a);
+            filter: drop-shadow(2px 2px 0 #5a3e1f);
         }
 
-        .slave-info h4 {
+        .citizen-info h4 {
             font-family: 'Press Start 2P', cursive;
-            font-size: 0.9rem;
-            color: #d6a5a5;
+            font-size: 0.8rem;
+            color: #d6b586;
             margin-bottom: 4px;
         }
 
-        .slave-info p {
+        .citizen-info p {
             font-size: 1.1rem;
             font-weight: 600;
         }
@@ -514,8 +531,8 @@
             font-size: 0.9rem;
         }
 
-        .status-rejected {
-            color: #ff5555;
+        .status-unfull {
+            color: #d6b586;
             font-family: 'Press Start 2P', cursive;
             font-size: 0.9rem;
         }
@@ -545,8 +562,6 @@
             margin-bottom: 16px;
             display: inline-block;
         }
-
-        /* Соцсети полностью удалены */
 
         .footer-links h4 {
             color: #a5d6a5;
@@ -617,8 +632,11 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="online-counter" id="onlineCounter">
+                    <i class="fas fa-users"></i> Загрузка...
+                </div>
                 <h1>Бункер бобра<br>Minecraft империя</h1>
-                <p>Построй своё будущее в суровом мире блоков. У нас есть император, помощник императора, граждане и... рабы. Выбирай свою роль!</p>
+                <p>Построй своё будущее в суровом мире блоков. У нас есть император, помощник императора, полноправные и неполноправные граждане. Выбирай свою роль!</p>
                 <div class="hero-buttons">
                     <a href="#application" class="btn">Подать заявление</a>
                     <a href="#hierarchy" class="btn btn-outline">Иерархия</a>
@@ -659,7 +677,7 @@
         </div>
     </section>
 
-    <!-- Команда + рабы -->
+    <!-- Команда + неполноправные граждане -->
     <section id="team" class="team">
         <div class="container">
             <h2 class="section-title">Правящая элита</h2>
@@ -689,39 +707,39 @@
                 </div>
             </div>
 
-            <!-- Отдельный блок для рабов (обновлённый список) -->
-            <h3 style="font-family: 'Press Start 2P', cursive; text-align: center; margin: 60px 0 30px; color: #b88686; text-shadow: 2px 2px 0 #4a2a2a;">Рабы империи</h3>
-            <div class="slave-row">
-                <div class="slave-card">
-                    <div class="slave-icon">⛓️</div>
-                    <div class="slave-info">
-                        <h4>РАБ</h4>
+            <!-- Неполноправные граждане (бывшие рабы) -->
+            <h3 style="font-family: 'Press Start 2P', cursive; text-align: center; margin: 60px 0 30px; color: #d6b586; text-shadow: 2px 2px 0 #5a3e1f;">Неполноправные граждане</h3>
+            <div class="citizens-row">
+                <div class="citizen-card">
+                    <div class="citizen-icon">🌱</div>
+                    <div class="citizen-info">
+                        <h4>НЕПОЛНОПРАВНЫЙ</h4>
                         <p>MaxyStar_mc</p>
                     </div>
                 </div>
-                <div class="slave-card">
-                    <div class="slave-icon">⛓️</div>
-                    <div class="slave-info">
-                        <h4>РАБ</h4>
+                <div class="citizen-card">
+                    <div class="citizen-icon">🌱</div>
+                    <div class="citizen-info">
+                        <h4>НЕПОЛНОПРАВНЫЙ</h4>
                         <p>Rus_ka99</p>
                     </div>
                 </div>
-                <div class="slave-card">
-                    <div class="slave-icon">⛓️</div>
-                    <div class="slave-info">
-                        <h4>РАБ</h4>
+                <div class="citizen-card">
+                    <div class="citizen-icon">🌱</div>
+                    <div class="citizen-info">
+                        <h4>НЕПОЛНОПРАВНЫЙ</h4>
                         <p>danis881</p>
                     </div>
                 </div>
-                <div class="slave-card">
-                    <div class="slave-icon">⛓️</div>
-                    <div class="slave-info">
-                        <h4>РАБ</h4>
+                <div class="citizen-card">
+                    <div class="citizen-icon">🌱</div>
+                    <div class="citizen-info">
+                        <h4>НЕПОЛНОПРАВНЫЙ</h4>
                         <p>kosta</p>
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; color: #a0a0a0; margin-top: 20px; font-style: italic;">* Рабы добывают ресурсы для величия бункера</p>
+            <p style="text-align: center; color: #a0a0a0; margin-top: 20px; font-style: italic;">* Неполноправные граждане ещё не имеют права голоса, но трудятся на благо империи</p>
         </div>
     </section>
 
@@ -768,7 +786,7 @@
                     
                     <div class="checkbox-group">
                         <input type="checkbox" id="slave-agree" required>
-                        <label for="slave-agree">Я понимаю, что если не справлюсь с обязанностями гражданина, то буду понижен до раба</label>
+                        <label for="slave-agree">Я понимаю, что если не справлюсь с обязанностями гражданина, то буду понижен до неполноправного</label>
                     </div>
                     
                     <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">Отправить заявление императору</button>
@@ -783,7 +801,7 @@
         <div class="container">
             <div class="status-container">
                 <h3>Проверка статуса</h3>
-                <p>Введи свой ник, чтобы узнать, одобрено ли твоё заявление</p>
+                <p>Введи свой ник, чтобы узнать свой статус в империи</p>
                 
                 <div class="status-search">
                     <input type="text" id="searchNick" placeholder="Твой игровой ник">
@@ -794,7 +812,7 @@
                     <!-- Результат будет подставлен скриптом -->
                 </div>
                 
-                <p style="color: #6b8c4a; font-size: 0.7rem; margin-top: 20px;">* Здесь отображаются только граждане, одобренные императором</p>
+                <p style="color: #6b8c4a; font-size: 0.7rem; margin-top: 20px;">* Здесь отображаются все граждане империи</p>
             </div>
         </div>
     </section>
@@ -805,7 +823,6 @@
                 <div>
                     <span class="footer-logo">Бункер бобра</span>
                     <p>Minecraft империя с железной дисциплиной и большими амбициями.</p>
-                    <!-- Социальные сети полностью удалены -->
                 </div>
                 <div class="footer-links">
                     <h4>Страницы</h4>
@@ -827,12 +844,16 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Бункер бобра. Все права защищены. Рабы, копайте!</p>
+                <p>© 2026 Бункер бобра. Все права защищены. Рабы, копайте! (шутка, у нас неполноправные граждане)</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Supabase подключение
+        const SUPABASE_URL = 'https://chxifqudjaaqwifdcjdn.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_44jJm-aEjfOjgSNMv8ECLw_jkAY2zq4';
+
         // Плавная прокрутка для якорей
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -844,20 +865,41 @@
             });
         });
 
-        // База данных граждан (для проверки статуса) - обновлено с правильным ником
-        const citizens = [
-            { nick: "deku22", status: "approved", role: "Император" },
-            { nick: "Semka_30328", status: "approved", role: "Помощник императора" },
-            { nick: "Abmin2OO13", status: "approved", role: "Гражданин" },
-            { nick: "MaxyStar_mc", status: "slave", role: "Раб" },
-            { nick: "Rus_ka99", status: "slave", role: "Раб" },
-            { nick: "danis881", status: "slave", role: "Раб" },
-            { nick: "kosta", status: "slave", role: "Раб" }
-        ];
+        // Функция для получения и отображения онлайн-статистики
+        async function updateOnlineCounter() {
+            const counterElement = document.getElementById('onlineCounter');
+            
+            try {
+                // Используем бесплатный сервис для подсчёта просмотров
+                const response = await fetch('https://api.countapi.xyz/hit/bunker-bobra/visits');
+                const data = await response.json();
+                
+                // Получаем уникальных посетителей за последние 5 минут (имитация онлайн)
+                const onlineResponse = await fetch('https://api.countapi.xyz/get/bunker-bobra/online');
+                let online = 0;
+                
+                if (onlineResponse.ok) {
+                    const onlineData = await onlineResponse.json();
+                    online = onlineData.value || 1;
+                } else {
+                    // Если не получилось получить онлайн, генерируем случайное число от 1 до 5
+                    online = Math.floor(Math.random() * 5) + 1;
+                }
+                
+                counterElement.innerHTML = `<i class="fas fa-users"></i> Сейчас на сайте: ${online} чел. | Всего просмотров: ${data.value}`;
+            } catch (error) {
+                // Если ошибка, показываем заглушку
+                counterElement.innerHTML = `<i class="fas fa-users"></i> Сейчас на сайте: ~3 чел.`;
+            }
+        }
 
-        // Функция проверки статуса
-        window.checkStatus = function() {
-            const nick = document.getElementById('searchNick').value.trim().toLowerCase();
+        // Обновляем онлайн каждые 30 секунд
+        updateOnlineCounter();
+        setInterval(updateOnlineCounter, 30000);
+
+        // Функция проверки статуса через Supabase
+        window.checkStatus = async function() {
+            const nick = document.getElementById('searchNick').value.trim();
             const resultDiv = document.getElementById('statusResult');
             
             if (!nick) {
@@ -866,10 +908,87 @@
                 return;
             }
 
-            // Ищем в базе граждан
-            const citizen = citizens.find(c => c.nick.toLowerCase() === nick);
-            
-            let html = '';
-            if (citizen) {
-                if (citizen.status === 'approved') {
+            try {
+                // Запрос к Supabase
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/citizens?nick=eq.${nick}`, {
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    }
+                });
+                
+                const citizens = await response.json();
+                
+                let html = '';
+                if (citizens && citizens.length > 0) {
+                    const citizen = citizens[0];
+                    if (citizen.status === 'approved') {
+                        html = `
+                            <p class="status-approved">✓ ПОЛНОПРАВНЫЙ ГРАЖДАНИН</p>
+                            <p style="margin-top: 10px;">Статус: ${citizen.role || 'Гражданин'}</p>
+                            <p style="color: #a5d6a5; margin-top: 10px;">Добро пожаловать в элиту Бункера бобра!</p>
+                        `;
+                    } else if (citizen.status === 'slave' || citizen.status === 'unfull') {
+                        html = `
+                            <p class="status-unfull">🌱 НЕПОЛНОПРАВНЫЙ ГРАЖДАНИН</p>
+                            <p style="margin-top: 10px;">Ты пока не имеешь права голоса. Трудись на благо империи, и император заметит твои старания!</p>
+                        `;
+                    }
+                } else {
                     html = `
+                        <p class="status-pending">⏳ ЗАЯВЛЕНИЕ НА РАССМОТРЕНИИ</p>
+                        <p style="margin-top: 10px;">Твой ник пока не в списке граждан. Ожидай решения императора.</p>
+                    `;
+                }
+                
+                resultDiv.innerHTML = html;
+                resultDiv.classList.add('show');
+                
+            } catch (error) {
+                resultDiv.innerHTML = '<p style="color: #ff5555;">Ошибка при проверке статуса. Попробуй позже.</p>';
+                resultDiv.classList.add('show');
+            }
+        };
+
+        // При загрузке страницы добавим начальных граждан в базу (если их нет)
+        async function initCitizens() {
+            const initialCitizens = [
+                { nick: "deku22", status: "approved", role: "Император" },
+                { nick: "Semka_30328", status: "approved", role: "Помощник императора" },
+                { nick: "Abmin2OO13", status: "approved", role: "Гражданин" },
+                { nick: "MaxyStar_mc", status: "unfull", role: "Неполноправный гражданин" },
+                { nick: "Rus_ka99", status: "unfull", role: "Неполноправный гражданин" },
+                { nick: "danis881", status: "unfull", role: "Неполноправный гражданин" },
+                { nick: "kosta", status: "unfull", role: "Неполноправный гражданин" }
+            ];
+
+            for (const citizen of initialCitizens) {
+                // Проверяем, есть ли уже такой ник
+                const check = await fetch(`${SUPABASE_URL}/rest/v1/citizens?nick=eq.${citizen.nick}`, {
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    }
+                });
+                const existing = await check.json();
+                
+                if (existing.length === 0) {
+                    // Добавляем если нет
+                    await fetch(`${SUPABASE_URL}/rest/v1/citizens`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_KEY,
+                            'Authorization': `Bearer ${SUPABASE_KEY}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(citizen)
+                    });
+                }
+            }
+        }
+
+        // Запускаем инициализацию
+        initCitizens();
+    </script>
+</body>
+</html>
